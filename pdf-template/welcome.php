@@ -4,33 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-<style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="pdf.php" rel="stylesheet">
+    <style>
 
-html, body{
-    border:1px solid black;
-
-    font-size: 13px;
-    height: 842px;
-        width: 595px;
-        /* to centre page on screen*/
-        margin-left: auto;
-        margin-right: auto;
+* {
+	margin: 0;
+    font-size:12px;
 
 }
 
+td,th{
+    border:solid 1px black;
+    border-collapse:collapse;
+}
 
+
+body {
+	width: 210mm;
+    height:297mm;
+
+}
+
+input{
+    background:none;
+    width:140px;
+    border:none;
+    height:12px;
+
+}
 
 </style>
 </head>
-
-
 <body>
-<div  style="text-align:center; border:1px solid black;     border-collapse: collapse; 
+<div  style="text-align:center;   
 ">
-
-    <table style="border:1px solid black; width: 100px; height: 100px;">
+    <table cellspacing="0" style="border:solid 2px black;  width:795px;">
         
-          <tr >
+          <tr>
             <th scope="col">Federacija Bosne i Hercegovine
                 <br> Federalno ministarstvo <br>
            finansija/financija Porezna uprava</th>
@@ -38,15 +49,13 @@ html, body{
             <th scope="col">Bar kod</th>
           </tr>
     </table>
-    <table  style="border:1px solid black; text-align:center;" >
+    <h2 align="center;" style="font-size:13px; border:none; height:20px;">Prvi dio - podaci o obvezniku doprinosa</h2>
+    <table  style="border:solid 2px black; width: 209mm; text-align: center; height:20px; position:relative; top:10px;" >
 
-        <tr>
-            <td colspan="7"><h2 align="center;" style="font-size:13px; border:none;">Prvi dio - podaci o obvezniku doprinosa</h2></td>
-        </tr>
 
-        <tr>
+        <tr style="border-collapse:collapse; height:100%; width:5%;">
             <td colspan="3">1) JIB/JMB
-            <input id="jibjmb" placeholder="JIB/JMB" style="color:blue;" style="outline:none; border:none; font-size:13px; width:150mm; color:blue; text-align:center; color:blue;"  type="text" name="brojfirme"><?php echo $result['nazivfirme'] ?></td> 
+            <input id="jibjmb" placeholder="JIB/JMB"  style="color:blue;  font-size:13px; width:150mm;  text-align:center; " type="text" name="brojfirme"><?php echo $result['brojfirme'] ?></td> 
         </tr>
 
         <tr>
@@ -80,10 +89,12 @@ html, body{
                      <input id="emailfirme" placeholder="Unesite svoj E-mail" style="color:blue;" type="email" name="emailfirme" ><?php echo $result['emailfirme'] ?></td>
                  </tr>
                  </table>
-                 <table  style="border:1px solid black; text-align:center;" >
-                 <tr><td colspan="7"><h2 align="center;" style="font-size:13px;">Drugi dio - podaci osiguranika</h2></td></tr>
-                   
-                   
+                 <br>
+                 <br>
+                 <br>
+                 <h2 align="center;" style="font-size:13px;">Drugi dio - podaci osiguranika</h2>
+                 <table  style=" border:solid 2px black; width: 209mm; text-align: center; height:20px; position:relative; top:10px;" >
+                             
                     <tr>
                         <td>1</td>
                         <td colspan="2">JMB ili lični identifikacioni broj(za strance)</td>
@@ -103,7 +114,7 @@ html, body{
                         <td>5</td>
                         <td colspan="2">Spol:</td>
                         <td colspan="3"> Ženski: <input type="radio" name="gender1" value="Muško" id="" > </td>
-                        <td coslpan="3">Muški: <input type="radio" name="gender1" value="Žensko" id="" > <?php echo $result['gender1'] ?></td>
+                        <td coslpan="3">Muški: <input type="radio" name="gender1" value="Žensko" id="" style=> <?php echo $result['gender1'] ?></td>
                     </tr>
                     <tr>
                         <td>6</td>
@@ -140,19 +151,16 @@ html, body{
                             DR <input type="radio" name="gender2" value="DR"> MR <input type="radio" name="gender2" value="MR"> VSS <input type="radio" name="gender2" value="VSS"> VŠS <input type="radio" name="gender2" value="VŠS"> SSS <input type="radio" name="gender2" value="SSS"> NIŽA <input type="radio" name="gender2" value="NIŽA"> VKV <input type="radio" name="gender2" value="VKV"> KV <input type="radio" name="gender2" value="KV"> PK <input type="radio" name="gender2" value="PK"> NK <input type="radio" name="gender2" value="NK"><?php echo $result['gender2'] ?></td>
                     </tr>
                     </table>
-         
-        
-        <table  style="border:1px solid black; text-align:center;"  ><tr>
-            <td>
-                <h2 align="center;" style="font-size:13px; border:none;">
+                    <br>
+                    <br>
+                    <h2 align="center;" style="font-size:13px; border:none;">
                     Treći dio - Podaci o osiguranju
                 </h2>
-            </td>
-        </tr>
+        <table  style="border:solid 2px black; width: 209mm; text-align: center; height:20px; position:relative; top:10px;" >
           <tr>
               <td>1</td>
               <td colspan="2">Dnevno radno vrijeme:</td>
-              <td colspan="5"> <input id="sati" placeholder="Sati" style="color:blue;" type="text" name="sati" > <?php echo $result['sati'] ?><input id="minute" placeholder="Minute" placeholder="Unesite E-mail adresu" style="color:blue;" style="color:blue;" style="color:blue;" type="text" 
+              <td colspan="5"> <input id="sati" placeholder="Sati" style="color:blue;" type="text" name="sati" > <?php echo $result['sati'] ?><input id="minute" placeholder="Minute" placeholder="Unesite E-mail adresu" style="color:blue; " type="text" 
                           name="minute" ><?php echo $result['minute'] ?></td>
           </tr>
           <tr>
@@ -190,18 +198,17 @@ html, body{
               <input id="stepenuvecanja" type="text" placeholder="Stepen uvećanja" name="stepenuvecanja" ><?php echo $result['stepenuvecanja'] ?></td>
           </tr>
           </table>
-          <table  style="border:1px solid black; text-align:center;"  >
-            <td>
-              
-
-              <th colspan="1"><b> Ovjera predstavnika obveznika uplate doprinosa<br>
-              finansija/financija Porezna uprava.</b></th>
-            </td>
-            <td><th colspan="7"><h2 align="center;" style="font-size:13px; border:none;">Cetvrti dio - potvrda i prijem</h2></th></td>
-            <td><th colspan="7"><b> Ovjera prijema u poreznoj upravi </b></th></td>
-            
-          </table>
-          <table >
+          <br>
+          <br>
+          
+          <h2 style="font-size:13px; border:none; float: left; height:20px;"> Ovjera predstavnika obveznika uplate doprinosa<br>
+            finansija/financija Porezna uprava.</h2>
+            <h2 style="font-size:13px; margin-right: 200px; border:none; height:20px;">Cetvrti dio - potvrda i prijem</h2>
+            <h2 style="font-size:13px; float: right; border:none; height:20px; padding-right:10px; padding-bottom:5px;">Ovjera prijema u poreznoj upravi </h2>
+        
+        
+          </h2>
+          <table  style="border:solid 2px black; width: 209mm; text-align: center; height:20%; position:relative; top:13px;">
           <tr>
           <td colspan="3">Potpis podnosioca prijave:
           <input id="potpispodnosioca" placeholder="Unesi podatke" type="text" style="color:blue;" name="potpispodnosioca" ><?php echo $result['potpispodnosioca'] ?></td>

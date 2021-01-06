@@ -5,7 +5,6 @@ $result = array('brojfirme' => $_POST['brojfirme'], 'nazivfirme' => $_POST['nazi
 ob_start();
 require_once('pdf-template/welcome.php');
 $template = ob_get_clean();
-
 require_once('vendor/autoload.php');
 
 use Dompdf\Dompdf;
@@ -18,12 +17,16 @@ $pdf = new Dompdf();
 $pdf->loadHtml($template);
 
 
-$pdf->setPaper('A4', 'landscape');
+$pdf->setPaper('A4', 'portrait');
 
 $pdf->render();
 
 $pdf->stream('pdf.pdf'.time());
 file_put_contents('pdfs/obrazac-'.time().'.pdf',$pdf->output());
+
+
+
+
 include_once('insert.php');
 
 
